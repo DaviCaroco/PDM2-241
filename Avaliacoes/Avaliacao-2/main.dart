@@ -1,8 +1,17 @@
+import 'package:dart_application_1/dart_application_1.dart' as dart_application_1;
+import 'dart:convert';
+
 class Dependente {
   late String _nome;
 
   Dependente(String nome) {
     this._nome = nome;
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'nome': _nome,
+    };
   }
 }
 
@@ -14,6 +23,13 @@ class Funcionario {
     this._nome = nome;
     this._dependentes = dependentes;
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'nome': _nome,
+      'dependentes': _dependentes.map((dependente) => dependente.toJson()).toList(),
+    };
+  }
 }
 
 class EquipeProjeto {
@@ -24,24 +40,26 @@ class EquipeProjeto {
     _nomeProjeto = nomeprojeto;
     _funcionarios = funcionarios;
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'nomeProjeto': _nomeProjeto,
+      'funcionarios': _funcionarios.map((funcionario) => funcionario.toJson()).toList(),
+    };
+  }
 }
 
-
 void main() {
-  var ObjetoD1 = Dependente("Objeto1");
-  var ObjetoD2 = Dependente("Objeto2");
-  var ObjetoD3 = Dependente("Objeto3");
-  var ObjetoD4 = Dependente("Objeto4");
-  var ObjetoD5 = Dependente("Objeto5");
-  
-  var ObjetoF1 = Funcionario("Claudio", [ObjetoD1]);
-  var ObjetoF2 = Funcionario("Paula", [ObjetoD2]);
-  var ObjetoF3 = Funcionario("Roberto", [ObjetoD3]);
-  var ObjetoF4 = Funcionario("Jonas", [ObjetoD4]);
-  var ObjetoF5 = Funcionario("Erick", [ObjetoD5]);
+  var dependente1 = Dependente('Dependente1');
+  var dependente2 = Dependente('Dependente2');
 
-  var Lista = [ObjetoF1,ObjetoF2,ObjetoF3,ObjetoF4,ObjetoF5];
+  var funcionario1 = Funcionario('Claudio', [dependente1]);
+  var funcionario2 = Funcionario('Fernanda', [dependente2]);
 
-  var Equipe = EquipeProjeto("Projeto", Lista);
-  
+  var ListaFuncionarios = [funcionario1, funcionario2];
+
+  var equipeProjeto = EquipeProjeto('Projeto1', ListaFuncionarios);
+
+  var EquipeProjetoJson = jsonEncode(equipeProjeto.toJson());
+  print(EquipeProjetoJson);
 }
