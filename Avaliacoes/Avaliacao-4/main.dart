@@ -140,9 +140,8 @@ void main() async {
   final db = AlunoDatabase.instance;
 
   // Inserir um aluno
-  final aluno1 = Aluno(nome: 'Gabriel', dataNascimento: '2006-09-29');
-  final aluno2 = Aluno(nome: 'João Pedro', dataNascimento: '2005-08-27');
-
+  final aluno1 = Aluno(nome: 'Davi', dataNascimento: '2007-07-31');
+  
   int aluno1Id = await db.insertAluno(aluno1);
   int alunoId2 = await db.insertAluno(aluno2);
   
