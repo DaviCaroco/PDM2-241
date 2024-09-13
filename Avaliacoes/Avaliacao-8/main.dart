@@ -75,10 +75,10 @@ class MyApp extends StatelessWidget {
     );
 
     return MaterialApp(
-      title: 'Layout Demo - Davi Brandao',
+      title: 'Layout Demo - Davi Brandao dos Santos',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Layout Demo - Davi Brandao'),
+          title: const Text('Layout Demo - Davi Brandao dos Santos'),
         ),
         body: ListView(
           children: [
