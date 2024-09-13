@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
-        title: 'Mário Soares Néo e João Pedro Lopes Machado',
+        title: 'Davi Brandao Dos Santos',
         theme: ThemeData(
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(
@@ -191,7 +191,7 @@ class PagePessoal extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Center(
-      child: Text('Mário Soares Néo e João Pedro Lopes Machado'),
+      child: Text('Davi Brandao Dos Santos'),
     );
   }
 }
